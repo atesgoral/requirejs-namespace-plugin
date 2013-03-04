@@ -1,0 +1,12 @@
+{
+    "appDir": "../sample",
+    "dir": "../dist",
+    "baseUrl": "./",
+    "paths": {
+        "namespace": "../namespace"
+    },
+    "optimize": "none",
+    "modules": [{
+        "name": "main"
+    }]
+}
