@@ -21,15 +21,15 @@ The app/fruits/all.js file contains:
 
 ```js
 define([
-	"./apple",
-	"./banana",
-	"./kiwi"
+    "./apple",
+    "./banana",
+    "./kiwi"
 ], function (apple, banana, kiwi) {
-	return {
-		apple: apple,
-		banana: banana,
-		kiwi: kiwi
-	};
+    return {
+        apple: apple,
+        banana: banana,
+        kiwi: kiwi
+    };
 })
 ```
 
@@ -37,17 +37,25 @@ app/main.js uses this namespace module to extend the 'app' namespace:
 
 ```js
 require([ "fruits/all" ], function (fruits) {
-	var app = {
-		fruits: fruits
-	};
+    var app = {
+        fruits: fruits
+    };
 
-	// ...
+    /*
+    app === {
+        fruits: {
+            apple: <apple object>,
+            banana: <banana object>,
+            kiwi: <kiwi object>
+        }
+    }
+    */
 });
 ```
 
 With the Namespace plugin, you can eliminate the boilerplate and just use a path mapping configuration.
 
-A slight adjustment to the folder structure to avoid a circular loop when 'fruits' is going be used as the parent of a child namespace:
+A slight adjustment (note the arbitrary 'ns_' prefix) to the folder structure to avoid a circular loop when 'fruits' is going be used as the parent of a child namespace:
 
 ```
 app
@@ -63,19 +71,27 @@ app/main.js sets up the path mapping and directly uses the fruits namespace:
 
 ```js
 require.config({
-	map: {
-		"*": {
-			"fruits": "namespace!ns_fruits:apple,banana,kiwi"
-		}
+    map: {
+        "*": {
+            "fruits": "namespace!ns_fruits:apple,banana,kiwi"
+        }
     }
 });
 
 require([ "fruits" ], function (fruits) {
-	var app = {
-		fruits: fruits
-	};
+    var app = {
+        fruits: fruits
+    };
 
-	// ...
+    /*
+    app === {
+        fruits: {
+            apple: <apple object>,
+            banana: <banana object>,
+            kiwi: <kiwi object>
+        }
+    }
+    */
 });
 ```
 
@@ -98,19 +114,31 @@ The following path mapping does the job:
 
 ```js
 require.config({
-	map: {
-		"*": {
-			"fruits": "namespace!ns_fruits:apples,banana,kiwi",
-			"ns_fruits/apples": "namespace!ns_fruits/ns_apples:red,green,golden"
-		}
+    map: {
+        "*": {
+            "fruits": "namespace!ns_fruits:apples,banana,kiwi",
+            "ns_fruits/apples": "namespace!ns_fruits/ns_apples:red,green,golden"
+        }
     }
 });
 
 require([ "fruits" ], function (fruits) {
-	var app = {
-		fruits: fruits
-	};
+    var app = {
+        fruits: fruits
+    };
 
-	// ...
+    /*
+    app === {
+        fruits: {
+            apples: {
+                red: <red apple object>,
+                green: <green apple object>,
+                golden: <golden apple object>
+            },
+            banana: <banana object>,
+            kiwi: <kiwi object>
+        }
+    }
+    */
 });
 ```
