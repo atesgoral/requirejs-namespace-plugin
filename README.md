@@ -53,9 +53,7 @@ require([ "fruits/all" ], function (fruits) {
 });
 ```
 
-With the Namespace plugin, you can eliminate the boilerplate and just use a path mapping configuration.
-
-A slight adjustment (note the arbitrary 'ns_' prefix) to the folder structure to avoid a circular loop when 'fruits' is going be used as the parent of a child namespace:
+With the Namespace plugin, you can eliminate the boilerplate:
 
 ```
 app
@@ -67,18 +65,16 @@ app
      \- apple.js
 ```
 
-app/main.js sets up the path mapping and directly uses the fruits namespace:
+app/main.js sets up some configuration and loads the 'fruits' namespace with the 'namespace!' plugin prefix:
 
 ```js
 require.config({
-    map: {
-        "*": {
-            "fruits": "namespace!ns_fruits:apple,banana,kiwi"
-        }
+    namespace: {
+        "fruits": "apple,banana,kiwi"
     }
 });
 
-require([ "fruits" ], function (fruits) {
+require([ "namespace!fruits" ], function (fruits) {
     var app = {
         fruits: fruits
     };
@@ -101,8 +97,8 @@ In a nested folder scenario:
 app
  \- main.js
  \- namespace.js
- \- ns_fruits
-     \- ns_apples
+ \- fruits
+     \- apples
          \- red.js
          \- green.js
          \- golden.js
@@ -110,19 +106,17 @@ app
      \- apple.js
 ```
 
-The following path mapping does the job:
+The following configuration does the job:
 
 ```js
 require.config({
-    map: {
-        "*": {
-            "fruits": "namespace!ns_fruits:apples,banana,kiwi",
-            "ns_fruits/apples": "namespace!ns_fruits/ns_apples:red,green,golden"
-        }
+    namespace: {
+        "fruits": "apples,banana,kiwi",
+        "fruits/apples": "red,green,golden"
     }
 });
 
-require([ "fruits" ], function (fruits) {
+require([ "namespace!fruits" ], function (fruits) {
     var app = {
         fruits: fruits
     };
