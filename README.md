@@ -69,8 +69,10 @@ app/main.js sets up some configuration and loads the 'fruits' namespace with the
 
 ```js
 require.config({
-    namespace: {
-        "fruits": "apple,banana,kiwi"
+    config: {
+        namespace: {
+            "fruits": "apple,banana,kiwi"
+        }
     }
 });
 
@@ -110,9 +112,11 @@ The following configuration does the job:
 
 ```js
 require.config({
-    namespace: {
-        "fruits": "apples,banana,kiwi",
-        "fruits/apples": "red,green,golden"
+    config: {
+        namespace: {
+            "fruits": "apples,banana,kiwi",
+            "fruits/apples": "red,green,golden"
+        }
     }
 });
 

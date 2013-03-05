@@ -2,9 +2,11 @@ require.config({
     paths: {
         namespace: "../namespace"
     },
-    namespace: {
-        "widgets": "button,dialog,fields",
-        "widgets/fields": "textfield,textarea"
+    config: {
+        namespace: {
+            "widgets": "button,dialog,fields",
+            "widgets/fields": "textfield,textarea"
+        }
     }
 });
 

@@ -5,6 +5,12 @@
     "paths": {
         "namespace": "../namespace"
     },
+    "config": {
+        "namespace": {
+            "widgets": "button,dialog,fields",
+            "widgets/fields": "textfield,textarea"
+        }
+    },
     "optimize": "none",
     "modules": [{
         "name": "main"

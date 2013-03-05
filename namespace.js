@@ -3,10 +3,12 @@
  * @version 0.0.1
  * Loads modules into a namespace
  */
-define(function () {
+define([ "module" ], function (module) {
     return {
         load: function (name, req, onload, config) {
-            var modules = config.namespace && config.namespace[name],
+            var localConfig = module.config();
+
+            var modules = localConfig[name],
                 path = [ name ];
 
             if (!modules) {
@@ -22,7 +24,7 @@ define(function () {
                 path[1] = module;
                 module = path.join("/");
 
-                if (config.namespace[module]) {
+                if (localConfig[module]) {
                     module = "namespace!" + module;
                 }
 
