@@ -1,5 +1,5 @@
 # RequireJS Namespace Plugin
-A RequireJS plugin for construcing namespaces from modules.
+A RequireJS plugin for collecting modules into a namespace.
 
 ## Before
 
