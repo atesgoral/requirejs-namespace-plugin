@@ -1,9 +1,9 @@
 # RequireJS Namespace Plugin
 A RequireJS plugin for construcing namespaces from modules.
 
-## Rationale
+## Before
 
-There is a lot of error-prone boilerplate involved with defining a namespace when using regular means.
+There is a lot of error-prone boilerplate involved with defining a namespace by regular means.
 
 Let's say we're trying to define a 'fruits' namespace. The folder structure is follows:
 
@@ -33,6 +33,8 @@ define([
 })
 ```
 
+The above definitely doesn't meet the DRY principle.
+
 app/main.js uses this namespace module to extend the 'app' namespace:
 
 ```js
@@ -52,6 +54,8 @@ require([ "fruits/all" ], function (fruits) {
     */
 });
 ```
+
+## After
 
 With the Namespace plugin, you can eliminate the boilerplate:
 
@@ -140,3 +144,7 @@ require([ "namespace!fruits" ], function (fruits) {
     */
 });
 ```
+
+## License
+
+MIT
