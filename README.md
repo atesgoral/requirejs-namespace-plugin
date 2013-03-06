@@ -63,7 +63,7 @@ With the Namespace plugin, you can eliminate the boilerplate:
 app
  \- main.js
  \- namespace.js
- \- ns_fruits
+ \- fruits
      \- apple.js
      \- banana.js
      \- apple.js
