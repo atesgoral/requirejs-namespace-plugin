@@ -145,6 +145,37 @@ require([ "namespace!fruits" ], function (fruits) {
 });
 ```
 
+In a subfolder scenario, you can ignore a folder, creating a prefix for
+the custom namespace:
+
+```js
+require.config({
+    config: {
+        namespace: {
+            "apples": {
+                prefix: "fruits/apples",
+                files: "red,green,golden"
+        }
+    }
+});
+
+require([ "namespace!apples" ], function (apples) {
+    var app = {
+        apples: apples
+    };
+
+    /*
+    app === {
+        apples: {
+            red: <red apple object>,
+            green: <green apple object>,
+            golden: <golden apple object>
+        }
+    }
+    */
+});
+```
+
 ## License
 
 MIT
