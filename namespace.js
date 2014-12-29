@@ -4,6 +4,8 @@
  * Loads modules into a namespace
  */
 define([ "module" ], function (module) {
+    'use strict';
+
     return {
         load: function (name, req, onload, config) {
             var localConfig = module.config();
