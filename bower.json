@@ -1,0 +1,14 @@
+{
+  "name": "requirejs-namespace-plugin",
+  "version": "1.0.0",
+  "homepage": "https://github.com/atesgoral/requirejs-namespace-plugin",
+  "authors": [
+    "Ates Goral <ates@magnetiq.com>"
+  ],
+  "description": "A RequireJS plugin for constructing namespaces from modules",
+  "main": "namespace.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT"
+}
