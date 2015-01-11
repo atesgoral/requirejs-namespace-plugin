@@ -1,3 +1,3 @@
 define({
-	type: "button"
+	type: 'button'
 });

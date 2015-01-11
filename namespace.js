@@ -3,7 +3,7 @@
  * @version 0.0.1
  * Loads modules into a namespace
  */
-define([ "module" ], function (module) {
+define([ 'module' ], function (module) {
     'use strict';
 
     return {
@@ -14,20 +14,20 @@ define([ "module" ], function (module) {
                 path = [ name ];
 
             if (!modules) {
-                var err = new Error("Module configuration is missing");
+                var err = new Error('Module configuration is missing');
                 err.namespaceModule = name;
                 onload.error(err);
                 return;
             }
 
-            modules = modules.split(",");
+            modules = modules.split(',');
 
             var paths = modules.map(function (module) {
                 path[1] = module;
-                module = path.join("/");
+                module = path.join('/');
 
                 if (localConfig[module]) {
-                    module = "namespace!" + module;
+                    module = 'namespace!' + module;
                 }
 
                 return module;

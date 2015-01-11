@@ -1,16 +1,16 @@
 require.config({
     paths: {
-        namespace: "../namespace"
+        namespace: '../namespace'
     },
     config: {
         namespace: {
-            "widgets": "button,dialog,fields",
-            "widgets/fields": "textfield,textarea"
+            'widgets': 'button,dialog,fields',
+            'widgets/fields': 'textfield,textarea'
         }
     }
 });
 
-define([ "namespace!widgets" ], function (widgets) {
+define([ 'namespace!widgets' ], function (widgets) {
     var app = {
         widgets: widgets
     };

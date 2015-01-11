@@ -21,9 +21,9 @@ The app/fruits/all.js file contains:
 
 ```js
 define([
-    "./apple",
-    "./banana",
-    "./kiwi"
+    './apple',
+    './banana',
+    './kiwi'
 ], function (apple, banana, kiwi) {
     return {
         apple: apple,
@@ -38,7 +38,7 @@ The above definitely doesn't meet the DRY principle.
 app/main.js uses this namespace module to extend the 'app' namespace:
 
 ```js
-require([ "fruits/all" ], function (fruits) {
+require([ 'fruits/all' ], function (fruits) {
     var app = {
         fruits: fruits
     };
@@ -75,12 +75,12 @@ app/main.js sets up some configuration and loads the 'fruits' namespace with the
 require.config({
     config: {
         namespace: {
-            "fruits": "apple,banana,kiwi"
+            'fruits': 'apple,banana,kiwi'
         }
     }
 });
 
-require([ "namespace!fruits" ], function (fruits) {
+require([ 'namespace!fruits' ], function (fruits) {
     var app = {
         fruits: fruits
     };
@@ -118,13 +118,13 @@ The following configuration does the job:
 require.config({
     config: {
         namespace: {
-            "fruits": "apples,banana,kiwi",
-            "fruits/apples": "red,green,golden"
+            'fruits': 'apples,banana,kiwi',
+            'fruits/apples': 'red,green,golden'
         }
     }
 });
 
-require([ "namespace!fruits" ], function (fruits) {
+require([ 'namespace!fruits' ], function (fruits) {
     var app = {
         fruits: fruits
     };

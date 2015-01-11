@@ -1,3 +1,3 @@
 define({
-	type: "textarea"
+	type: 'textarea'
 });

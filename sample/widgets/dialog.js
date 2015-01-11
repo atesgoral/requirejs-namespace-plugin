@@ -1,3 +1,3 @@
 define({
-	type: "dialog"
+	type: 'dialog'
 });
